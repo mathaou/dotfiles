@@ -143,10 +143,15 @@ export PATH="$PATH:$HOME/flutter/flutter/bin"
 export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:$HOME/java/jdk-15.0.1+9/bin"
 export PATH="$PATH:$HOME/dotnet-sdk"
+export PATH="$PATH:$HOME/.golang/sdk/go1.15.5/bin"
 
 alias vim='nvim'
 alias aur='function _yogurt(){ yaourt -S $1; };_yogurt'
 alias bare="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias ls="exa -F --color always --icons"
+alias lsx="ls -l -h"
+alias initspotify="spotifyd --no-daemon &"
+alias spotify="spt"
 
 function reload_nvim {
     for SERVER in $(nvr --serverlist); do
@@ -163,12 +168,13 @@ alias night="alacritty-colorscheme -C $COLOR_DIR -a $DARK_COLOR && reload_nvim"
 
 . $HOME/.asdf/completions/asdf.bash
 
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
+# function _update_ps1() {
+#     PS1=$(powerline-shell $?)
+# }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1  ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+# if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1  ]]; then
+#     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+# fi
 
-neofetch
+pfetch
+eval "$(starship init bash)"

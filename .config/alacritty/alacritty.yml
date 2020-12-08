@@ -45,6 +45,7 @@ colors:
     magenta: '0x614a73'
     cyan: '0x186c60'
     white: '0x63686d'
+background_opacity: 0.95
 font:
   normal:
     family: JetBrains Mono Semi Light
